@@ -1,7 +1,8 @@
 <?php
 require_once 'function_core.php';
+require_once 'config/config.php';
 
-$config['ak'] = "Vxut3c1FTgF05f7X2QOIt6xG";
+$ak = $config['geocoding']['ak'];
 $config['output'] = "json";
 $config['city'] = "北京";
 
@@ -24,7 +25,7 @@ if(isset($_POST['city'])) {
 	$city = urlencode($config['city']);
 }
 $apiUrl= "http://api.map.baidu.com/geocoder/v2/?";
-$url = $apiUrl . "ak=" . $config['ak'] . "&address=" . $config['address'] . "&output=" . $config['output'] . "&city=" . $city;
+$url = $apiUrl . "ak=" . $ak . "&address=" . $config['address'] . "&output=" . $config['output'] . "&city=" . $city;
 
 $geoData = curlGet($url);
 if(isset($_POST['shell'])) {

@@ -1,7 +1,7 @@
 <?php
 require_once 'function_core.php';
 
-$config['mapApiUrl'] = "http://dev.annhe.net/map/geocoding.php";
+$config['mapApiUrl'] = "http://dev.annhe.net/corp_map/geocoding.php";
 
 $data = file('data.txt');
 $add = array();
@@ -9,7 +9,7 @@ foreach ( $data as $k => $v) {
 	$arr = explode("        ", $v);
 	$add[] = array('name' => trim($arr[0]), 'address' => trim($arr[1]));
 }
-$file = fopen('data.csv', 'w');
+$file = fopen('geotable.csv', 'w');
 fwrite($file, "title,address,longitude,latitude,coord_type\n");
 for($i=0; $i<count($add); $i++) {
 	$title = $add[$i]['name'];
@@ -26,7 +26,7 @@ for($i=0; $i<count($add); $i++) {
 		echo $address . " failed\n";
 		continue;
 	}
-	$coord_type = "1";
+	$coord_type = "3";
 	fwrite($file, $title . "," . $address . "," . $longitude . "," . $latitude . "," . $coord_type . "\n");
 }
 fclose($file);

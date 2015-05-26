@@ -35,3 +35,16 @@ function curlGet($url) {
         return $data;
 }
 
+
+//查询表
+function searchGeotable($ak, $name=null) {
+	$searchApiUrl = "http://api.map.baidu.com/geodata/v3/geotable/list";
+	if($name != null) {
+		$url = $searchApiUrl . "?ak=" . $ak;
+		return curlGet($url);
+	} else {
+		$url = $searchApiUrl . "?ak=" . $ak . "&name=" . $name;
+		return curlGet($url);
+	}
+	
+}
