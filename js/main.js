@@ -228,7 +228,7 @@ Util.addLogCount();
         page        = 0,    //当前页码
         points      = [],   //存储检索出来的结果的坐标数组
         customLayer = null; //麻点图层
-    customLayer=new BMap.CustomLayer(4392); //新建麻点图图层对象
+    customLayer=new BMap.CustomLayer(105567); //新建麻点图图层对象
     map.addTileLayer(customLayer); //将麻点图添加到地图当中
     customLayer.addEventListener('hotspotclick', hotspotclickCallback); //给麻点图添加点击麻点回调函数
 
