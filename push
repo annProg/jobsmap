@@ -1,0 +1,8 @@
+#!/bin/bash
+[ $# -lt 1 ] && echo "comment needed.." && exit 1
+cat ./config/config.php |sed "s/\".*\";/\"\";/g" > ./config/sample_config.php
+git add -A
+commit=$1
+[ "$commit"x = ""x ] && commit=commit
+git commit -m "$commit"
+git push origin
